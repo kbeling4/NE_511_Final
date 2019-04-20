@@ -4,6 +4,7 @@
 #include <fstream>
 #include <iostream>
 #include <Eigen/Dense>
+#include <boost/math/special_functions/bessel.hpp> 
 using namespace Eigen;
 
 int N = 100;
@@ -69,6 +70,10 @@ double get_k( VectorXd phi_n, VectorXd phi_o, VectorXd Rc, double& nuSig_f, doub
 
 int main()
 {
+  int v = 0;
+  double z = 2;
+  auto r = cyl_bessel_i(v, z);
+  std::cout << r << std::endl;
   // ---- Setup Problem ----------------------------------------------------
   VectorXd Rc = get_Rc( Rmin, Rmax, N );
   VectorXd Rb = get_Rb( Rmin, Rmax, N );
